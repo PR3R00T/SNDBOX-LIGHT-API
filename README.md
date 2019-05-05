@@ -2,6 +2,7 @@
 A Light wrapper for the SNDBOX Rest API written in Python3.
 This wrapper can be used to communicate to the SNDBOX exposed Rest API to all for the submissions of samples to the platform.
 As per the documentation found at: https://app.sndbox.com/docs/api The wrapper allows for the three functions:
+
     Search - Search the database for a md5hash.
     Submit - Submit a sample to the platform.
     Metadata - Gather information about a uploaded file.
