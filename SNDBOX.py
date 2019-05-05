@@ -15,16 +15,16 @@ def search(apikey,md5hash):
         response = requests.get("https://api.sndbox.com/developers/files/verdict?apikey="+apikey+"&hash="+md5hash)
     except exception as e:
         print("Error Occurred connecting to the SNDBOX API - " + str(e))
+        break
     #Check Response
     if response.status_code == 200 or response.status_code == 404:
         return response
     elif response.status_code == 400:
-        error = "Bad Parameter, Error with MD5 Hash Format"
-        return error
+        print("Bad Parameter, Error with MD5 Hash Format")
+        break
     elif response.status_code == 401:
-        error = "API Key incorrect"
-        return error
-
+        print("API Key incorrect")
+        break
 
 
 def file_check(file):
@@ -65,8 +65,8 @@ def submit(apikey,file,email):
     #Check File is supported
     file_supported = file_check(file)
     if file_supported == False:
-        error = "File is not supported, Please check Documentation at: https://app.sndbox.com/docs/files"
-        return error
+        print("File is not supported, Please check Documentation at: https://app.sndbox.com/docs/files")
+        break
     else:
     #Supported File must be true, Continue with the upload
         sndbox_api_url ='https://api.sndbox.com/developers/files?apikey=' + apikey
