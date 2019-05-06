@@ -33,7 +33,7 @@ def file_check(file):
     Boolen - True/False
     '''
     #File Extension Check
-    supported_files=[".doc",".dot",".xls",".csv",".xlt",".xlm",".ppt",".pot",".pps",".docx",".docm",".dotx",".dotm",".dotm",".xlsx",".xlsm",".xltx",".xltm",".xlsb",".xla",".xlam",".iqy",".pptx",".pptm",".potx",".ppsx",".xml",".pe32",".rtf",".pdf",".vbs",".vbe",".ps1",".js",".lnk",".html",".bat",".zip"]
+    supported_files=[".raw",".doc",".dot",".xls",".csv",".xlt",".xlm",".ppt",".pot",".pps",".docx",".docm",".dotx",".dotm",".dotm",".xlsx",".xlsm",".xltx",".xltm",".xlsb",".xla",".xlam",".iqy",".pptx",".pptm",".potx",".ppsx",".xml",".pe32",".rtf",".pdf",".vbs",".vbe",".ps1",".js",".lnk",".html",".bat",".zip"]
     supported_sample = False
     while supported_sample == False:
         if "." not in file:
