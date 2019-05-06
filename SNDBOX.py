@@ -1,5 +1,5 @@
 import requests
-
+import sys
 
 def search(apikey,md5hash):
     '''
@@ -14,17 +14,14 @@ def search(apikey,md5hash):
     try:
         response = requests.get("https://api.sndbox.com/developers/files/verdict?apikey="+apikey+"&hash="+md5hash)
     except exception as e:
-        print("Error Occurred connecting to the SNDBOX API - " + str(e))
-        break
+        sys.exit("Error Occurred connecting to the SNDBOX API - " + str(e))
     #Check Response
     if response.status_code == 200 or response.status_code == 404:
         return response
     elif response.status_code == 400:
-        print("Bad Parameter, Error with MD5 Hash Format")
-        break
+        sys.exit("Bad Parameter, Error with MD5 Hash Format")
     elif response.status_code == 401:
-        print("API Key incorrect")
-        break
+        sys.exit("API Key incorrect")
 
 
 def file_check(file):
@@ -65,8 +62,7 @@ def submit(apikey,file,email):
     #Check File is supported
     file_supported = file_check(file)
     if file_supported == False:
-        print("File is not supported, Please check Documentation at: https://app.sndbox.com/docs/files")
-        break
+        sys.exit("File is not supported, Please check Documentation at: https://app.sndbox.com/docs/files")
     else:
     #Supported File must be true, Continue with the upload
         sndbox_api_url ='https://api.sndbox.com/developers/files?apikey=' + apikey
@@ -75,7 +71,7 @@ def submit(apikey,file,email):
         try:
             response = requests.post(url=sndbox_api_url, files=files,data=email_flag)
         except exception as e:
-            print("Error Occurred connected to the SNDBOX API - " + str(e))
+            sys.exit("Error Occurred connected to the SNDBOX API - " + str(e))
         return response
 
 
@@ -93,7 +89,7 @@ def metadata(apikey,id):
     try:
         response = requests.get(url)
     except exception as e:
-        print("Error Occurred connecting to SNDBOX API - " + str(e))
+        sys.exit("Error Occurred connecting to SNDBOX API - " + str(e))
     return response 
 
 
