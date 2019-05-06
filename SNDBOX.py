@@ -13,7 +13,7 @@ def search(apikey,md5hash):
     #Prep Call
     try:
         response = requests.get("https://api.sndbox.com/developers/files/verdict?apikey="+apikey+"&hash="+md5hash)
-    except exception as e:
+    except Exception as e:
         sys.exit("Error Occurred connecting to the SNDBOX API - " + str(e))
     #Check Response
     if response.status_code == 200 or response.status_code == 404:
@@ -70,7 +70,7 @@ def submit(apikey,file,email):
         email_flag = {'emailnotification':email}
         try:
             response = requests.post(url=sndbox_api_url, files=files,data=email_flag)
-        except exception as e:
+        except Exception as e:
             sys.exit("Error Occurred connected to the SNDBOX API - " + str(e))
         return response
 
@@ -88,7 +88,7 @@ def metadata(apikey,id):
     url = 'https://api.sndbox.com/developers/files/'+ id + '?apikey=' + apikey
     try:
         response = requests.get(url)
-    except exception as e:
+    except Exception as e:
         sys.exit("Error Occurred connecting to SNDBOX API - " + str(e))
     return response 
 
