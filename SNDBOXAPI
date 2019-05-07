@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import requests
 import sys
 
@@ -62,7 +64,8 @@ def submit(apikey,file,email):
     #Check File is supported
     file_supported = file_check(file)
     if file_supported == False:
-        sys.exit("File is not supported, Please check Documentation at: https://app.sndbox.com/docs/files")
+        print("File is not supported, Please check Documentation at: https://app.sndbox.com/docs/files")
+        return False
     else:
     #Supported File must be true, Continue with the upload
         sndbox_api_url ='https://api.sndbox.com/developers/files?apikey=' + apikey
