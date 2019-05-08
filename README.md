@@ -18,8 +18,14 @@ Below are the requirements for each function:
 
 Providing all input is correct each function returns the full raw response from the SNDBOX Rest API.
     
-this package relies on requests to make its calls, Please install requests with: pip install requests
+this package relies on requests to make its calls, Please install requests with: 
+    
+    pip install requests
 
-You can also install this package via pip with: pip install sndboxapi
+You can also install this package via pip with: 
 
-    import the package into your code with "from sndbox import sndboxapi"
+    pip install sndboxapi
+
+import the package into your code with:
+    
+    from sndbox import sndboxapi
