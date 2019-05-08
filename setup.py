@@ -6,11 +6,9 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
 
-     name='SNDBOXAPI',  
+     name='sndboxapi',
 
-     version='1.0',
-
-     scripts=['SNDBOXAPI'] ,
+     version='2.0',
 
      author="PR3R00T",
 
